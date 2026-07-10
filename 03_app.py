@@ -148,6 +148,10 @@ st.markdown(f"""
 # Recommend Button
 # ---------------------------------------------------
 
+# ---------------------------------------------------
+# Recommend Button
+# ---------------------------------------------------
+
 if st.button("🎬 Recommend Movies"):
 
     index = get_index_from_name(name)
@@ -158,18 +162,18 @@ if st.button("🎬 Recommend Movies"):
 
     else:
 
-      similarity_scores = cosine_similarity(
-    vector[index],
-    vector
-).flatten()
+        similarity_scores = cosine_similarity(
+            vector[index],
+            vector
+        ).flatten()
 
-similarity_indexes = list(enumerate(similarity_scores))
+        similarity_indexes = list(enumerate(similarity_scores))
 
-similarity_indexes = sorted(
-    similarity_indexes,
-    key=lambda x: x[1],
-    reverse=True
-)
+        similarity_indexes = sorted(
+            similarity_indexes,
+            key=lambda x: x[1],
+            reverse=True
+        )
 
         st.divider()
 
@@ -183,7 +187,7 @@ similarity_indexes = sorted(
 
             movie_name = get_name_by_index(movie_index)
 
-            with cols[i-1]:
+            with cols[i - 1]:
 
                 st.markdown(
                     f"""
@@ -194,7 +198,6 @@ similarity_indexes = sorted(
                     """,
                     unsafe_allow_html=True
                 )
-
 # ---------------------------------------------------
 # Footer
 # ---------------------------------------------------
