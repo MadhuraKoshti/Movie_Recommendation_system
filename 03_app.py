@@ -88,9 +88,13 @@ Discover movies similar to your favourite movie using AI
 df = pd.read_csv("cleaned_data.csv")
 df.reset_index(drop=True, inplace=True)
 
-similarities = joblib.load("similarity.joblib")
+from sklearn.metrics.pairwise import cosine_similarity
+
+tfidf = joblib.load("tfidf_vectorizer.joblib")
+vector = joblib.load("tfidf_matrix.joblib")
 
 movies = df["title"].tolist()
+
 
 # ---------------------------------------------------
 # Helper Functions
