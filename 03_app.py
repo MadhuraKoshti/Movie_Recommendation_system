@@ -130,9 +130,10 @@ def get_index_from_name(name):
 st.markdown("### 🎥 Select Your Favourite Movie")
 
 name = st.selectbox(
-    "",
+    "Select a Movie",
     movies,
-    index=0
+    index=0,
+    label_visibility="collapsed"
 )
 
 st.markdown(f"""
