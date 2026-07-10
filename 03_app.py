@@ -158,13 +158,18 @@ if st.button("🎬 Recommend Movies"):
 
     else:
 
-        similarity_indexes = list(enumerate(similarities[index]))
+      similarity_scores = cosine_similarity(
+    vector[index],
+    vector
+).flatten()
 
-        similarity_indexes = sorted(
-            similarity_indexes,
-            key=lambda x: x[1],
-            reverse=True
-        )
+similarity_indexes = list(enumerate(similarity_scores))
+
+similarity_indexes = sorted(
+    similarity_indexes,
+    key=lambda x: x[1],
+    reverse=True
+)
 
         st.divider()
 
